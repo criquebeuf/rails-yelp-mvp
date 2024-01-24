@@ -1,0 +1,14 @@
+<h1><%= @restaurant.name %> </h1>
+<h3>Information</h3>
+<p>Location: <%= @restaurant.address %> </p>
+<p>Type of food: <%= @restaurant.category %></p>
+<h3>Reviews</h3>
+  <ul>
+    <% @reviews.each do |review| %>
+      <li><%= review.content %> | Rating: <%= review.rating %>/5</li>
+      <%# #links by default trigger get requests so we need to write the data bit %>
+    <% end %>
+  </ul>
+<h3>Add new review?</h3>
+<%= link_to "Review now!", new_restaurant_review_path(@restaurant) %>
+</div>
